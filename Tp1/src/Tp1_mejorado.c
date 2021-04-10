@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include "Operaciones.h"
+#include "Herramientas.h"
 
 int main(void) {
 
