@@ -47,10 +47,10 @@ float MultiplicarOperadores(float x, float y){
 }
 
 
-int CalcularFactorial(int x){
+int  CalcularFactorial(int x){
 
 	int i;
-	int factorial;
+	int long factorial;
 
 	factorial = 1;
 

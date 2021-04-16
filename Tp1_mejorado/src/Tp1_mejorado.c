@@ -33,9 +33,11 @@ int main(void) {
 	int validacion;
 	int factorialA;
 	int factorialB;
+	int flagSeguir;
 
 	flagPrimerOperador = 0;
 	flagSegundoOperador = 0;
+	flagSeguir = 0;
 
 	do {
 	system("cls");
@@ -72,6 +74,7 @@ int main(void) {
         		division = DividirOperadores(numeroA, numeroB);
         		producto = MultiplicarOperadores(numeroA, numeroB);
         		validacion = ValidarEntero(numeroA);
+        		flagSeguir = 1;
         			if(validacion == 1){
         				numeroAEntero = numeroA;
         				factorialA = CalcularFactorial(numeroAEntero);
@@ -101,7 +104,7 @@ int main(void) {
 	        break;
         case 4:
         	system("cls");
-        	if (flagPrimerOperador != 0 && flagSegundoOperador != 0){
+        	if ((flagSeguir == 1)&&(flagPrimerOperador != 0 && flagSegundoOperador != 0)){
         		printf("El resultado de A+B es: %f\n", suma);
         		printf("El resultado de A-B es: %f\n", resta);
 
@@ -118,24 +121,29 @@ int main(void) {
         			printf("El factorial de A es: %d y el factorial de B es: %d\n", factorialA, factorialB);
         		}
         		else if(factorialA == 0 && factorialB !=0){
-        			printf("El factorial de A no se puede calcular por ser un numero decimal o menor que cero, y el factorial de B es: %d\n", factorialB);
-        		}
-        		else if(factorialA != 0 && factorialB ==0){
-        			printf("El factorial de A es: %d y el factorial de B no se puede calcular por ser un numero decimal menore que cero\n", factorialA);
-        		}
-        		else{
-        			printf("No se pueden calcular el factorial de A ni de B por ser numeros decimales o menores que cero\n");
+					printf("El factorial de A no se puede calcular por ser un numero decimal, negativo o muy grande para el programa y el factorial de B es: %d\n", factorialB);
+				}
+				else if(factorialA != 0 && factorialB ==0){
+					printf("El factorial de A es: %d y el factorial de B no se puede calcular por ser un numero decimal, negativo o muy grande para el programa\n", factorialA);
+				}
+				else{
+					printf("No se pueden calcular el factorial de A ni de B por ser numeros decimales, negativos o muy grandes para el programa\n");
         		}
         	}
-        	else if(flagPrimerOperador == 0 && flagSegundoOperador != 0){
-				printf("Aun no ha ingresado el operador A\n");
+        	else if((flagSeguir == 0)&&(flagPrimerOperador != 0 && flagSegundoOperador != 0)){
+
+        		printf("Primero debe seleccionar la opcion 3 para realizar todas las operaciones\n");
+        	}
+
+        	else if((flagSeguir == 0)&&(flagPrimerOperador == 0 && flagSegundoOperador != 0)){
+				printf("Primero debe ingresar el operador A y luego seleccionar la opcion 3 para realizar todas las operaciones\n");
 
 			}
-			else if ((flagPrimerOperador != 0 && flagSegundoOperador == 0)){
-				printf("Aun no ha ingresado el operador B\n");
+			else if ((flagSeguir == 0)&&(flagPrimerOperador != 0 && flagSegundoOperador == 0)){
+				printf("Primero debe ingresar el operador B y luego seleccionar la opcion 3 para realizar todas las operaciones\n");
 			}
 			else{
-				printf("Aun no ha ingresado ningun operador\n");
+				printf("Primero debe ingresar operador A y operador B y luego seleccionar la opcion 3 para realizar todas las operaciones\n");
         	        	}
 
 	        break;
