@@ -1,10 +1,10 @@
 /*
  ============================================================================
- Name        : Tp1_mejorado.c
- Author      : Santiago
+ Name        : Tp1
+ Author      : Santiago Luquez
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Calculadora, realiza suma, resta division, multiplicacion y factorial.
  ============================================================================
  */
 
